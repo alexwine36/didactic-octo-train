@@ -100,6 +100,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Caching for Turborepo
         uses: rharkor/caching-for-turbo@v2.3.5
+        with:
+          cache-prefix: ${{ matrix.settings.target }}
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -238,6 +240,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Caching for Turborepo
         uses: rharkor/caching-for-turbo@v2.3.5
+        with:
+          cache-prefix: ${{ matrix.settings.target }}
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -279,6 +283,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Caching for Turborepo
         uses: rharkor/caching-for-turbo@v2.3.5
+        with:
+          cache-prefix: ${{ matrix.target }}
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -338,6 +344,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Caching for Turborepo
         uses: rharkor/caching-for-turbo@v2.3.5
+        with:
+          cache-prefix: wasm32-wasip1-threads
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
