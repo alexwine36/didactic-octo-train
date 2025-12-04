@@ -23,6 +23,9 @@ export declare class TakeoffEngine {
   fitToViewport(imageWidth: number, imageHeight: number, viewportWidth: number, viewportHeight: number): Transform
 }
 
+export declare function plus100(input: number): number
+
+export declare function sum(a: number, b: number): number
 /** Represents a line segment between two points */
 export interface Line {
   start: Point
@@ -34,8 +37,6 @@ export type Measurement =
   | { type: 'Linear', id: string, line?: Line, polyline?: Polyline, scale: Scale, displayUnit: Unit }
   | { type: 'Area', id: string, rectangle?: Rectangle, polygon?: Polygon, scale: Scale, displayUnit: Unit }
   | { type: 'Count', id: string, point: Point }
-
-export declare function plus100(input: number): number
 
 /** Represents a 2D point with floating point coordinates */
 export interface Point {
@@ -67,8 +68,6 @@ export interface Scale {
   /** Unit for the real-world distance */
   unit: Unit
 }
-
-export declare function sum(a: number, b: number): number
 
 /** State management for takeoff measurements */
 export interface TakeoffState {

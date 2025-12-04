@@ -1,5 +1,5 @@
-use crate::takeoff_core::{Line, Measurement, Point, Scale, Unit};
-use crate::takeoff_tools::{TakeoffTool, ToolAction};
+use takeoff_core::{Line, Measurement, Point, Scale, Unit};
+use crate::{TakeoffTool, ToolAction};
 
 /// Tool for setting the scale by drawing a reference line
 pub struct ScaleTool {

@@ -1,5 +1,5 @@
-use crate::takeoff_core::{Measurement, Point};
-use crate::takeoff_tools::{TakeoffTool, ToolAction};
+use takeoff_core::{Measurement, Point};
+use crate::{TakeoffTool, ToolAction};
 
 /// Tool for creating count markers
 pub struct CountTool {

@@ -1,6 +1,8 @@
 pub mod engine;
-pub mod takeoff_core;
-pub mod takeoff_tools;
+
+// Re-export the crates for JavaScript bindings
+pub use takeoff_core;
+pub use takeoff_tools;
 pub use engine::TakeoffEngine;
 use napi_derive::napi;
 

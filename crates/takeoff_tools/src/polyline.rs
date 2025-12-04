@@ -1,5 +1,5 @@
-use crate::takeoff_core::{Measurement, Point, Polyline, Scale, Unit};
-use crate::takeoff_tools::{TakeoffTool, ToolAction};
+use takeoff_core::{Measurement, Point, Polyline, Scale, Unit};
+use crate::{TakeoffTool, ToolAction};
 
 /// Tool for creating linear measurements with polylines (multiple connected line segments)
 pub struct PolylineTool {

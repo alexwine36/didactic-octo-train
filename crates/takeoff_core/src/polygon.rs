@@ -1,4 +1,4 @@
-use crate::takeoff_core::Point;
+use crate::Point;
 use geo::{Area, Coord, LineString, Polygon as GeoPolygon};
 use napi_derive::napi;
 use serde::{Deserialize, Serialize};

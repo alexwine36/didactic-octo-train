@@ -1,5 +1,5 @@
-use napi_test::takeoff_core::{Point, Unit};
-use napi_test::takeoff_tools::*;
+use takeoff_core::{Point, Unit};
+use takeoff_tools::*;
 
 #[test]
 fn test_scale_tool() {

@@ -1,4 +1,4 @@
-use crate::takeoff_core::Point;
+use crate::Point;
 use napi_derive::napi;
 use serde::{Deserialize, Serialize};
 

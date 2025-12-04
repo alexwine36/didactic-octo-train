@@ -1,5 +1,5 @@
-use crate::takeoff_core::{Measurement, Point, Transform};
-use crate::takeoff_tools::{TakeoffTool, ToolAction};
+use takeoff_core::{Measurement, Point, Transform};
+use crate::{TakeoffTool, ToolAction};
 
 /// Result of a selection operation
 #[derive(Debug, Clone, PartialEq)]

@@ -1,5 +1,5 @@
-use napi_test::takeoff_core::{Line, Measurement, Point, Rectangle, Scale, Transform, Unit};
-use napi_test::takeoff_tools::SelectionTool;
+use takeoff_core::{Line, Measurement, Point, Rectangle, Scale, Transform, Unit};
+use takeoff_tools::SelectionTool;
 
 #[test]
 fn test_find_selection_linear_line() {

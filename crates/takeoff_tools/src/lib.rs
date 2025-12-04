@@ -14,7 +14,7 @@ pub use rectangle::RectangleTool;
 pub use scale::ScaleTool;
 pub use selection::{SelectionResult, SelectionTool};
 
-use crate::takeoff_core::{Measurement, Point};
+use takeoff_core::{Measurement, Point};
 
 /// Trait for takeoff tools that can create measurements
 pub trait TakeoffTool {

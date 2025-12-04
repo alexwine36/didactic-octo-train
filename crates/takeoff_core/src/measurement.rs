@@ -1,4 +1,4 @@
-use crate::takeoff_core::{Line, Point, Polygon, Polyline, Rectangle, Scale, Unit, UnitUtils};
+use crate::{Line, Point, Polygon, Polyline, Rectangle, Scale, Unit, UnitUtils};
 use napi_derive::napi;
 use serde::{Deserialize, Serialize};
 
@@ -153,7 +153,7 @@ impl Measurement {
 #[cfg(test)]
 mod tests {
   use super::*;
-  use crate::takeoff_core::{Point, Polygon, Rectangle, Scale, Unit};
+  use crate::{Point, Polygon, Rectangle, Scale, Unit};
 
   #[test]
   fn test_negative_area() {
