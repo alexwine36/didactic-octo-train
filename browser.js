@@ -1,1 +1,1 @@
-export * from '@napi-rs/takeoff-wasm32-wasi'
+export * from '@alex-wine/napi-test-wasm32-wasi'

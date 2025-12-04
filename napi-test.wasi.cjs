@@ -32,16 +32,16 @@ const __sharedMemory = new WebAssembly.Memory({
   shared: true,
 })
 
-let __wasmFilePath = __nodePath.join(__dirname, 'takeoff.wasm32-wasi.wasm')
-const __wasmDebugFilePath = __nodePath.join(__dirname, 'takeoff.wasm32-wasi.debug.wasm')
+let __wasmFilePath = __nodePath.join(__dirname, 'napi-test.wasm32-wasi.wasm')
+const __wasmDebugFilePath = __nodePath.join(__dirname, 'napi-test.wasm32-wasi.debug.wasm')
 
 if (__nodeFs.existsSync(__wasmDebugFilePath)) {
   __wasmFilePath = __wasmDebugFilePath
 } else if (!__nodeFs.existsSync(__wasmFilePath)) {
   try {
-    __wasmFilePath = __nodePath.resolve('@napi-rs/takeoff-wasm32-wasi')
+    __wasmFilePath = __nodePath.resolve('@alex-wine/napi-test-wasm32-wasi')
   } catch {
-    throw new Error('Cannot find takeoff.wasm32-wasi.wasm file, and @napi-rs/takeoff-wasm32-wasi package is not installed.')
+    throw new Error('Cannot find napi-test.wasm32-wasi.wasm file, and @alex-wine/napi-test-wasm32-wasi package is not installed.')
   }
 }
 
