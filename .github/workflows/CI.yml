@@ -203,7 +203,7 @@ jobs:
   #           env
   #           freebsd-version
   #           pnpm install
-  #           pnpm --filter bindings build
+  #           pnpm --filter ./packages/bindings build
   #           rm -rf node_modules
   #           rm -rf target
   #     - name: Upload artifact
@@ -386,9 +386,9 @@ jobs:
         with:
           path: artifacts
       - name: create npm dirs
-        run: pnpm --filter bindings napi create-npm-dirs
+        run: pnpm --filter ./packages/bindings napi create-npm-dirs
       - name: Move artifacts
-        run: pnpm --filter bindings artifacts
+        run: pnpm --filter ./packages/bindings artifacts
       - name: List packages
         run: ls -R ./npm
         shell: bash
