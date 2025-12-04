@@ -8,7 +8,7 @@ export declare class TakeoffEngine {
   set transform(transform: Transform)
   get scale(): Scale | null
   set scale(scale: Scale | null)
-  addTransformCallback(callback: (err: Error | null, arg: Transform) => any): void
+  addTransformCallback(callback: ((err: Error | null, arg: Transform) => any)): void
   /** Transform a point from screen coordinates to world coordinates */
   screenToWorld(point: Point): Point
   /** Transform a point from world coordinates to screen coordinates */
@@ -34,9 +34,9 @@ export interface Line {
 
 /** Types of measurements that can be created */
 export type Measurement =
-  | { type: 'Linear'; id: string; line?: Line; polyline?: Polyline; scale: Scale; displayUnit: Unit }
-  | { type: 'Area'; id: string; rectangle?: Rectangle; polygon?: Polygon; scale: Scale; displayUnit: Unit }
-  | { type: 'Count'; id: string; point: Point }
+  | { type: 'Linear', id: string, line?: Line, polyline?: Polyline, scale: Scale, displayUnit: Unit }
+  | { type: 'Area', id: string, rectangle?: Rectangle, polygon?: Polygon, scale: Scale, displayUnit: Unit }
+  | { type: 'Count', id: string, point: Point }
 
 /** Represents a 2D point with floating point coordinates */
 export interface Point {
@@ -96,5 +96,5 @@ export declare const enum Unit {
   Inches = 'Inches',
   /** Metric units */
   Meters = 'Meters',
-  Centimeters = 'Centimeters',
+  Centimeters = 'Centimeters'
 }

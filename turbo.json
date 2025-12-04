@@ -14,11 +14,20 @@
                 "browser.js"
             ]
         },
-        "test": {
+        "test:local": {
             "dependsOn": [
                 "build"
             ],
-            "cache": false
+            "inputs": [
+                "**/*.ts",
+                "**/*.rs"
+            ]
+        },
+        "test": {
+            "inputs": [
+                "**/*.ts",
+                "**/*.rs"
+            ]
         },
         "lint": {
             "cache": false

@@ -5,6 +5,7 @@
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "test:local": "turbo run test:local",
     "lint": "turbo run lint",
     "format": "turbo run format format:toml format:rs format:fix",
     "bench": "turbo run bench",

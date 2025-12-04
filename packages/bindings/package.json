@@ -60,6 +60,7 @@
     "lint": "oxlint",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "vitest run",
+    "test:local": "vitest run",
     "test:watch": "vitest watch",
     "version": "napi version"
   },

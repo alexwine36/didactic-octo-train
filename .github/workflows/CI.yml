@@ -2,21 +2,21 @@ name: CI
 env:
   DEBUG: napi:*
   APP_NAME: napi-test
-  MACOSX_DEPLOYMENT_TARGET: '10.13'
-  CARGO_INCREMENTAL: '1'
+  MACOSX_DEPLOYMENT_TARGET: "10.13"
+  CARGO_INCREMENTAL: "1"
 permissions:
   contents: write
   id-token: write
-'on':
+"on":
   push:
     branches:
       - main
     tags-ignore:
-      - '**'
+      - "**"
     paths-ignore:
-      - '**/*.md'
+      - "**/*.md"
       - LICENSE
-      - '**/*.gitignore'
+      - "**/*.gitignore"
       - .editorconfig
       - docs/**
   pull_request: null
@@ -47,7 +47,7 @@ jobs:
       - name: Cargo fmt
         run: cargo fmt -- --check
       - name: Clippy
-        run: cargo clippy
+        run: cargo clippy --workspace
   build:
     strategy:
       fail-fast: false
@@ -55,43 +55,43 @@ jobs:
         settings:
           - host: macos-latest
             target: x86_64-apple-darwin
-            build: pnpm build --target x86_64-apple-darwin
+            build: pnpm build -- --target x86_64-apple-darwin
           - host: windows-latest
-            build: pnpm build --target x86_64-pc-windows-msvc
+            build: pnpm build -- --target x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
           - host: windows-latest
-            build: pnpm build --target i686-pc-windows-msvc
+            build: pnpm build -- --target i686-pc-windows-msvc
             target: i686-pc-windows-msvc
           - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            build: pnpm build --target x86_64-unknown-linux-gnu --use-napi-cross
+            build: pnpm build -- --target x86_64-unknown-linux-gnu --use-napi-cross
           - host: ubuntu-latest
             target: x86_64-unknown-linux-musl
-            build: pnpm build --target x86_64-unknown-linux-musl -x
+            build: pnpm build -- --target x86_64-unknown-linux-musl -x
           - host: macos-latest
             target: aarch64-apple-darwin
-            build: pnpm build --target aarch64-apple-darwin
+            build: pnpm build -- --target aarch64-apple-darwin
           - host: ubuntu-latest
             target: aarch64-unknown-linux-gnu
-            build: pnpm build --target aarch64-unknown-linux-gnu --use-napi-cross
+            build: pnpm build -- --target aarch64-unknown-linux-gnu --use-napi-cross
           - host: ubuntu-latest
             target: armv7-unknown-linux-gnueabihf
-            build: pnpm build --target armv7-unknown-linux-gnueabihf --use-napi-cross
+            build: pnpm build -- --target armv7-unknown-linux-gnueabihf --use-napi-cross
           - host: ubuntu-latest
             target: aarch64-linux-android
-            build: pnpm build --target aarch64-linux-android
+            build: pnpm build -- --target aarch64-linux-android
           - host: ubuntu-latest
             target: armv7-linux-androideabi
-            build: pnpm build --target armv7-linux-androideabi
+            build: pnpm build -- --target armv7-linux-androideabi
           - host: ubuntu-latest
             target: aarch64-unknown-linux-musl
-            build: pnpm build --target aarch64-unknown-linux-musl -x
+            build: pnpm build -- --target aarch64-unknown-linux-musl -x
           - host: windows-latest
             target: aarch64-pc-windows-msvc
-            build: pnpm build --target aarch64-pc-windows-msvc
+            build: pnpm build -- --target aarch64-pc-windows-msvc
           - host: ubuntu-latest
             target: wasm32-wasip1-threads
-            build: pnpm build --target wasm32-wasip1-threads
+            build: pnpm build -- --target wasm32-wasip1-threads
     name: stable - ${{ matrix.settings.target }} - node@20
     runs-on: ${{ matrix.settings.host }}
     steps:
@@ -151,14 +151,14 @@ jobs:
         if: matrix.settings.target != 'wasm32-wasip1-threads'
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: '*.node'
+          path: "packages/bindings/*.node"
           if-no-files-found: error
       - name: Upload artifact
         uses: actions/upload-artifact@v5
         if: matrix.settings.target == 'wasm32-wasip1-threads'
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: '*.wasm'
+          path: "packages/bindings/*.wasm"
           if-no-files-found: error
   build-freebsd:
     runs-on: ubuntu-latest
@@ -173,7 +173,7 @@ jobs:
           RUSTUP_IO_THREADS: 1
         with:
           operating_system: freebsd
-          version: '14.3'
+          version: "14.3"
           memory: 8G
           cpu_count: 3
           environment_variables: DEBUG RUSTUP_IO_THREADS
@@ -197,14 +197,14 @@ jobs:
             env
             freebsd-version
             pnpm install
-            pnpm build
+            pnpm --filter bindings build
             rm -rf node_modules
             rm -rf target
       - name: Upload artifact
         uses: actions/upload-artifact@v5
         with:
           name: bindings-freebsd
-          path: ${{ env.APP_NAME }}.*.node
+          path: packages/bindings/${{ env.APP_NAME }}.*.node
           if-no-files-found: error
   test-macOS-windows-binding:
     name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
@@ -224,8 +224,8 @@ jobs:
             target: aarch64-apple-darwin
             architecture: arm64
         node:
-          - '20'
-          - '22'
+          - "20"
+          - "22"
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v6
@@ -243,7 +243,7 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: .
+          path: packages/bindings
       - name: List packages
         run: ls -R .
         shell: bash
@@ -263,8 +263,8 @@ jobs:
           - aarch64-unknown-linux-musl
           - armv7-unknown-linux-gnueabihf
         node:
-          - '20'
-          - '22'
+          - "20"
+          - "22"
     runs-on: ${{ contains(matrix.target, 'aarch64') && 'ubuntu-24.04-arm' || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v6
@@ -301,7 +301,7 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           name: bindings-${{ matrix.target }}
-          path: .
+          path: packages/bindings
       - name: List packages
         run: ls -R .
         shell: bash
@@ -316,7 +316,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ${{ steps.docker.outputs.IMAGE }}
-          options: '-v ${{ steps.docker.outputs.PNPM_STORE_PATH }}:${{ steps.docker.outputs.PNPM_STORE_PATH }} -v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }} --platform ${{ steps.docker.outputs.PLATFORM }}'
+          options: "-v ${{ steps.docker.outputs.PNPM_STORE_PATH }}:${{ steps.docker.outputs.PNPM_STORE_PATH }} -v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }} --platform ${{ steps.docker.outputs.PLATFORM }}"
           run: npm run test
   test-wasi:
     name: Test WASI target
@@ -338,7 +338,7 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           name: bindings-wasm32-wasip1-threads
-          path: .
+          path: packages/bindings
       - name: List packages
         run: ls -R .
         shell: bash
@@ -371,13 +371,14 @@ jobs:
         with:
           path: artifacts
       - name: create npm dirs
-        run: pnpm napi create-npm-dirs
+        run: pnpm --filter bindings napi create-npm-dirs
       - name: Move artifacts
-        run: pnpm artifacts
+        run: pnpm --filter bindings artifacts
       - name: List packages
         run: ls -R ./npm
         shell: bash
       - name: Publish
+        working-directory: packages/bindings
         run: |
           npm config set provenance true
           if git log -1 --pretty=%B | grep "^v\?[0-9]\+\.[0-9]\+\.[0-9]\+$";
