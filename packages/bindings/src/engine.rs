@@ -1,4 +1,3 @@
-use takeoff_core::{Point, Scale, TakeoffState, Transform};
 use napi::{
   bindgen_prelude::*,
   threadsafe_function::{ThreadsafeFunction, ThreadsafeFunctionCallMode},
@@ -9,6 +8,7 @@ use std::{
   sync::{Arc, Mutex},
   thread,
 };
+use takeoff_core::{Point, Scale, TakeoffState, Transform};
 
 #[napi]
 #[derive(Serialize, Deserialize, Clone)]

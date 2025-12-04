@@ -1,5 +1,5 @@
-use takeoff_core::{Measurement, Point, Polygon, Scale, Unit};
 use crate::{TakeoffTool, ToolAction};
+use takeoff_core::{Measurement, Point, Polygon, Scale, Unit};
 
 /// Tool for creating area measurements with polygons
 pub struct PolygonTool {

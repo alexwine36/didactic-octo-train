@@ -1,5 +1,5 @@
-use takeoff_core::{Line, Measurement, Point, Scale, Unit};
 use crate::{TakeoffTool, ToolAction};
+use takeoff_core::{Line, Measurement, Point, Scale, Unit};
 
 /// Tool for creating linear measurements with lines
 pub struct LineTool {

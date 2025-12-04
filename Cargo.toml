@@ -6,10 +6,10 @@ resolver = "2"
 napi = "3.0.0"
 napi-derive = "3.0.0"
 uom = { version = "0.37.0", default-features = false, features = [
-    "autoconvert",
-    "f64",
-    "si",
-    "serde",
+  "autoconvert",
+  "f64",
+  "si",
+  "serde",
 ] }
 geo = { version = "0.31.0", features = ["serde"] }
 serde = { version = "1.0", features = ["derive"] }

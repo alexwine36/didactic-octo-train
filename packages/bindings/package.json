@@ -54,7 +54,7 @@
     "bench": "node --import @oxc-node/core/register benchmark/bench.ts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
-    "format": "run-p format:prettier format:rs format:toml format:fix",
+    "format": "run-p format:prettier",
     "format:prettier": "prettier . -w",
     "format:toml": "taplo format",
     "lint": "oxlint",

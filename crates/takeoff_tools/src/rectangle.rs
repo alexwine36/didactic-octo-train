@@ -1,5 +1,5 @@
-use takeoff_core::{Measurement, Point, Rectangle, Scale, Unit};
 use crate::{TakeoffTool, ToolAction};
+use takeoff_core::{Measurement, Point, Rectangle, Scale, Unit};
 
 /// Tool for creating area measurements with rectangles
 pub struct RectangleTool {

@@ -1,10 +1,10 @@
 pub mod engine;
 
 // Re-export the crates for JavaScript bindings
-pub use takeoff_core;
-pub use takeoff_tools;
 pub use engine::TakeoffEngine;
 use napi_derive::napi;
+pub use takeoff_core;
+pub use takeoff_tools;
 
 #[napi]
 pub fn plus_100(input: u32) -> u32 {
