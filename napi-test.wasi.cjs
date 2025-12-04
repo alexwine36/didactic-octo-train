@@ -108,5 +108,7 @@ const { instance: __napiInstance, module: __wasiModule, napiModule: __napiModule
   },
 })
 module.exports = __napiModule.exports
+module.exports.TakeoffEngine = __napiModule.exports.TakeoffEngine
 module.exports.plus100 = __napiModule.exports.plus100
 module.exports.sum = __napiModule.exports.sum
+module.exports.Unit = __napiModule.exports.Unit

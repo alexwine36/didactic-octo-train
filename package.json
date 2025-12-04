@@ -54,13 +54,15 @@
     "bench": "node --import @oxc-node/core/register benchmark/bench.ts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
-    "format": "run-p format:prettier format:rs format:toml",
+    "format": "run-p format:prettier format:rs format:toml format:fix",
     "format:prettier": "prettier . -w",
     "format:toml": "taplo format",
     "format:rs": "cargo fmt",
+    "format:fix": "cargo fix --allow-dirty",
     "lint": "oxlint",
     "prepublishOnly": "napi prepublish -t npm",
-    "test": "ava",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "version": "napi version"
   },
   "devDependencies": {
@@ -80,7 +82,8 @@
     "oxlint": "^1.14.0",
     "prettier": "^3.6.2",
     "tinybench": "^5.0.1",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.15"
   },
   "lint-staged": {
     "*.@(js|ts|tsx)": [
