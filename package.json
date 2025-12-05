@@ -10,12 +10,14 @@
     "test:rust": "turbo run cargo:test",
     "test:all": "turbo run cargo:test test:local",
     "cargo:test": "cargo test",
+    "clean": "git clean -fx",
     "lint": "turbo run lint",
     "format": "turbo run format format:toml format:rs format:fix",
     "bench": "turbo run bench",
     "format:toml": "taplo format",
     "format:rs": "cargo fmt",
-    "format:fix": "cargo fix --allow-dirty"
+    "format:fix": "cargo fix --allow-dirty",
+    "release": "pnpm --filter ./packages/bindings create-npm-dirs && pnpm --filter ./packages/bindings artifacts && ls -R ./packages/bindings/npm && pnpm changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",

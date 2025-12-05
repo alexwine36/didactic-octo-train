@@ -413,13 +413,13 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           path: packages/bindings/artifacts
-      - name: create npm dirs
-        run: pnpm --filter ./packages/bindings create-npm-dirs
-      - name: Move artifacts
-        run: pnpm --filter ./packages/bindings artifacts
-      - name: List packages
-        run: ls -R ./packages/bindings/npm
-        shell: bash
+      # - name: create npm dirs
+      #   run: pnpm --filter ./packages/bindings create-npm-dirs
+      # - name: Move artifacts
+      #   run: pnpm --filter ./packages/bindings artifacts
+      # - name: List packages
+      #   run: ls -R ./packages/bindings/npm
+      #   shell: bash
       - name: Set Provenance
         run: npm config set provenance true
         env:
@@ -429,7 +429,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset publish
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
