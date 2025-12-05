@@ -573,6 +573,8 @@ if (!nativeBinding) {
 
 module.exports = nativeBinding
 module.exports.TakeoffEngine = nativeBinding.TakeoffEngine
+module.exports.TakeoffMeasurement = nativeBinding.TakeoffMeasurement
 module.exports.plus100 = nativeBinding.plus100
 module.exports.sum = nativeBinding.sum
 module.exports.Unit = nativeBinding.Unit
+module.exports.CountTool = nativeBinding.CountTool

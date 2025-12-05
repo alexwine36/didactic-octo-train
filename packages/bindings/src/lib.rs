@@ -1,5 +1,5 @@
 pub mod engine;
-
+pub mod measurement;
 // Re-export the crates for JavaScript bindings
 pub use engine::TakeoffEngine;
 use napi_derive::napi;

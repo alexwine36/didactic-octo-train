@@ -13,7 +13,6 @@ takeoff_core = { path = "../../crates/takeoff_core" }
 takeoff_tools = { path = "../../crates/takeoff_tools" }
 napi = { workspace = true }
 napi-derive = { workspace = true }
-uom = { workspace = true }
 geo = { workspace = true }
 serde = { workspace = true }
 uuid = { workspace = true }

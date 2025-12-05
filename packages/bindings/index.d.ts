@@ -23,6 +23,15 @@ export declare class TakeoffEngine {
   fitToViewport(imageWidth: number, imageHeight: number, viewportWidth: number, viewportHeight: number): Transform
 }
 
+export declare class TakeoffMeasurement {
+  constructor(measurement: Measurement)
+  get measurement(): Measurement
+  set measurement(measurement: Measurement)
+  calculateArea(scale: Scale, targetUnit: Unit): number
+  calculatePerimeter(scale: Scale, targetUnit: Unit): number
+  calculateDistance(scale: Scale, targetUnit: Unit): number
+}
+
 export declare function plus100(input: number): number
 
 export declare function sum(a: number, b: number): number
@@ -97,4 +106,8 @@ export declare const enum Unit {
   /** Metric units */
   Meters = 'Meters',
   Centimeters = 'Centimeters'
+}
+/** Tool for creating count markers */
+export declare class CountTool {
+
 }

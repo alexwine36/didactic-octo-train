@@ -57,6 +57,8 @@ const {
 })
 export default __napiModule.exports
 export const TakeoffEngine = __napiModule.exports.TakeoffEngine
+export const TakeoffMeasurement = __napiModule.exports.TakeoffMeasurement
 export const plus100 = __napiModule.exports.plus100
 export const sum = __napiModule.exports.sum
 export const Unit = __napiModule.exports.Unit
+export const CountTool = __napiModule.exports.CountTool
