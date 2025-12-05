@@ -4,6 +4,7 @@
   "packageManager": "pnpm@10.24.0",
   "scripts": {
     "build": "turbo run build",
+    "change": "pnpm changeset",
     "test": "turbo run test",
     "test:local": "turbo run test:local",
     "test:rust": "turbo run cargo:test",
@@ -17,10 +18,11 @@
     "format:fix": "cargo fix --allow-dirty"
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
+    "@changesets/cli": "^2.29.8",
     "@taplo/cli": "^0.7.0",
+    "oxlint": "^1.14.0",
     "prettier": "^3.6.2",
-    "oxlint": "^1.14.0"
+    "turbo": "^2.0.0"
   },
   "version": "0.0.1"
 }
