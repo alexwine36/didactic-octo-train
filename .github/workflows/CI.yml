@@ -388,7 +388,7 @@ jobs:
         with:
           path: artifacts
       - name: create npm dirs
-        run: pnpm --filter ./packages/bindings napi create-npm-dirs
+        run: pnpm --filter ./packages/bindings create-npm-dirs
       - name: Move artifacts
         run: pnpm --filter ./packages/bindings artifacts
       - name: List packages

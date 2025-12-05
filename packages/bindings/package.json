@@ -47,6 +47,7 @@
   },
   "scripts": {
     "artifacts": "napi artifacts",
+    "create-npm-dirs": "napi create-npm-dirs",
     "bench": "node --import @oxc-node/core/register benchmark/bench.ts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
