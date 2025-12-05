@@ -392,7 +392,7 @@ jobs:
       - name: Move artifacts
         run: pnpm --filter ./packages/bindings artifacts
       - name: List packages
-        run: ls -R ./npm
+        run: ls -R ./packages/bindings/npm
         shell: bash
       - name: Publish
         working-directory: packages/bindings
