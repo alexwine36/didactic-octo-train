@@ -1,0 +1,39 @@
+{
+  "name": "example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:app": "tsc -b && vite build",
+    "lint": "oxlint",
+    "format": "run-p format:prettier format:fix",
+    "format:fix": "oxlint --fix",
+    "format:prettier": "prettier . -w",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "local-bindings": "workspace:*",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "npm-run-all2": "^8.0.4",
+    "oxlint": "^1.14.0",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "prettier": "^3.6.2",
+    "vite": "npm:rolldown-vite@7.2.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@7.2.5"
+    }
+  }
+}
