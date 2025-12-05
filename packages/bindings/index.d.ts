@@ -98,15 +98,13 @@ export interface Transform {
 }
 
 /** Measurement units supported by the system */
-export declare const enum Unit {
-  /** Imperial units */
-  Yards = 'Yards',
-  Feet = 'Feet',
-  Inches = 'Inches',
-  /** Metric units */
-  Meters = 'Meters',
-  Centimeters = 'Centimeters'
-}
+export type Unit = /** Imperial units */
+'Yards'|
+'Feet'|
+'Inches'|
+/** Metric units */
+'Meters'|
+'Centimeters';
 /** Tool for creating count markers */
 export declare class CountTool {
 
