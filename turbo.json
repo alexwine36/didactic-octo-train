@@ -23,6 +23,11 @@
                 "**/*.rs"
             ]
         },
+        "//#cargo:test": {
+            "inputs": [
+                "**/*.rs"
+            ]
+        },
         "test": {
             "inputs": [
                 "**/*.ts",

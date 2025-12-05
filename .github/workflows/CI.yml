@@ -50,6 +50,29 @@ jobs:
         run: cargo fmt -- --check
       - name: Clippy
         run: cargo clippy --workspace
+
+  rust-test:
+    name: Rust test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Caching for Turborepo
+        uses: rharkor/caching-for-turbo@v2.3.5
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        run: pnpm install
+      - name: Test Rust
+        run: pnpm test:rust
   build:
     strategy:
       fail-fast: false
@@ -366,6 +389,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - lint
+      - rust-test
       # - build-freebsd
       - test-macOS-windows-binding
       - test-linux-binding
