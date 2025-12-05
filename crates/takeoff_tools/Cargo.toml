@@ -1,0 +1,15 @@
+[package]
+name = "takeoff_tools"
+version = "0.1.0"
+edition = "2021"
+authors = ["LongYinan <lynweklm@gmail.com>"]
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+takeoff_core = { path = "../takeoff_core" }
+uom = { workspace = true }
+geo = { workspace = true }
+serde = { workspace = true }
+uuid = { workspace = true }

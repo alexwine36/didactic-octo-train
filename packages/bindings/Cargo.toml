@@ -1,0 +1,22 @@
+
+[package]
+authors = ["LongYinan <lynweklm@gmail.com>"]
+edition = "2021"
+name = "napi_test"
+version = "0.1.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+takeoff_core = { path = "../../crates/takeoff_core" }
+takeoff_tools = { path = "../../crates/takeoff_tools" }
+napi = { workspace = true }
+napi-derive = { workspace = true }
+uom = { workspace = true }
+geo = { workspace = true }
+serde = { workspace = true }
+uuid = { workspace = true }
+
+[build-dependencies]
+napi-build = "2"

@@ -1,0 +1,16 @@
+[package]
+name = "takeoff_core"
+version = "0.1.0"
+edition = "2021"
+authors = ["LongYinan <lynweklm@gmail.com>"]
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+uom = { workspace = true }
+geo = { workspace = true }
+serde = { workspace = true }
+uuid = { workspace = true }
+napi = { workspace = true }
+napi-derive = { workspace = true }

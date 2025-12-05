@@ -1,28 +1,19 @@
+[workspace]
+members = ["crates/*", "packages/bindings"]
+resolver = "2"
 
-[package]
-authors = ["LongYinan <lynweklm@gmail.com>"]
-edition = "2021"
-name = "napi_test"
-version = "0.1.0"
-
-[lib]
-crate-type = ["cdylib", "rlib"]
-
-[dependencies]
+[workspace.dependencies]
 napi = "3.0.0"
 napi-derive = "3.0.0"
 uom = { version = "0.37.0", default-features = false, features = [
-    "autoconvert",
-    "f64",
-    "si",
-    "serde",
+  "autoconvert",
+  "f64",
+  "si",
+  "serde",
 ] }
 geo = { version = "0.31.0", features = ["serde"] }
 serde = { version = "1.0", features = ["derive"] }
 uuid = { version = "1.0", features = ["v4", "serde", "js"] }
-
-[build-dependencies]
-napi-build = "2"
 
 [profile.release]
 lto = true
