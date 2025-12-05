@@ -1,5 +1,11 @@
 # @alex-wine/napi-test
 
+## 1.3.0
+
+### Minor Changes
+
+- ea955e5: Changed build to use no const enum
+
 ## 1.2.4
 
 ### Patch Changes
