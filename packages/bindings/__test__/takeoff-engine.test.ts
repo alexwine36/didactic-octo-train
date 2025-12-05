@@ -21,10 +21,26 @@ describe('TakeoffEngine', () => {
 
     expect(engine.screenToWorld({ x: 0, y: 0 })).toEqual({ x: 0, y: 0 })
     expect(engine.worldToScreen({ x: 0, y: 0 })).toEqual({ x: 0, y: 0 })
-    expect(engine.zoomAroundPoint({ x: 0, y: 0 }, 1.0)).toEqual({ scale: 1.0, offsetX: 0.0, offsetY: 0.0 })
-    expect(engine.pan(1.0, 1.0)).toEqual({ scale: 1.0, offsetX: 1.0, offsetY: 1.0 })
-    expect(engine.resetTransform()).toEqual({ scale: 1.0, offsetX: 0.0, offsetY: 0.0 })
-    expect(engine.fitToViewport(100, 100, 100, 100)).toEqual({ scale: 1.0, offsetX: 0.0, offsetY: 0.0 })
+    expect(engine.zoomAroundPoint({ x: 0, y: 0 }, 1.0)).toEqual({
+      scale: 1.0,
+      offsetX: 0.0,
+      offsetY: 0.0,
+    })
+    expect(engine.pan(1.0, 1.0)).toEqual({
+      scale: 1.0,
+      offsetX: 1.0,
+      offsetY: 1.0,
+    })
+    expect(engine.resetTransform()).toEqual({
+      scale: 1.0,
+      offsetX: 0.0,
+      offsetY: 0.0,
+    })
+    expect(engine.fitToViewport(100, 100, 100, 100)).toEqual({
+      scale: 1.0,
+      offsetX: 0.0,
+      offsetY: 0.0,
+    })
   })
 
   test('TakeoffEngine - transform callback', async () => {

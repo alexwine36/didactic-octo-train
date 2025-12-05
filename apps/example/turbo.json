@@ -1,0 +1,13 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [
+        "@alex-wine/napi-test#build",
+        "@alex-wine/napi-test#build:wasm"
+      ]
+    }
+  }
+}

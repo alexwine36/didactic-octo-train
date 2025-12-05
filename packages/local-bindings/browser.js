@@ -1,0 +1,1 @@
+export * from '../bindings/napi-test.wasi-browser'
