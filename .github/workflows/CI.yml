@@ -386,7 +386,7 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v6
         with:
-          path: artifacts
+          path: packages/bindings/artifacts
       - name: create npm dirs
         run: pnpm --filter ./packages/bindings create-npm-dirs
       - name: Move artifacts
