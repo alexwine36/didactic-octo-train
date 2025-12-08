@@ -1,5 +1,11 @@
 # @alex-wine/napi-test
 
+## 1.3.1
+
+### Patch Changes
+
+- 306e0d6: Added example app for testing
+
 ## 1.3.0
 
 ### Minor Changes
