@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { plus100, sum, TakeoffEngine } from 'local-bindings'
 import { Button } from './components/ui/button'
+import { Canvas } from './canvas'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,8 +17,10 @@ function App() {
   })
   console.log(engine.screenToWorld({ x: 0, y: 0 }))
 
+
   return (
     <>
+      <Canvas />
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

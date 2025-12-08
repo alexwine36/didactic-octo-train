@@ -8,7 +8,7 @@ use std::{
   sync::{Arc, Mutex},
   thread,
 };
-use takeoff_core::{Point, Scale, TakeoffState, Transform};
+use takeoff_core::{Point, Scale, TakeoffState, Transform, Unit};
 
 #[napi]
 #[derive(Serialize, Deserialize, Clone)]
@@ -16,6 +16,8 @@ pub struct TakeoffEngine {
   state: TakeoffState,
   transform: Transform,
   scale: Option<Scale>,
+  display_unit: Unit,
+
   #[serde(skip)]
   transform_callbacks: Arc<Mutex<Vec<ThreadsafeFunction<Transform>>>>,
 }
@@ -23,14 +25,25 @@ pub struct TakeoffEngine {
 #[napi]
 impl TakeoffEngine {
   #[napi(constructor)]
-  pub fn new(transform: Transform, scale: Option<Scale>) -> Self {
+  pub fn new(transform: Transform, scale: Option<Scale>, display_unit: Option<Unit>) -> Self {
     Self {
       state: TakeoffState::new(),
       transform,
       scale,
+      display_unit: display_unit.unwrap_or(Unit::Feet),
       transform_callbacks: Arc::new(Mutex::new(Vec::new())),
     }
   }
+
+  #[napi(getter)]
+  pub fn display_unit(&self) -> Unit {
+    self.display_unit.clone()
+  }
+  #[napi(setter)]
+  pub fn set_display_unit(&mut self, display_unit: Unit) {
+    self.display_unit = display_unit;
+  }
+
   #[napi(getter)]
   pub fn state(&self) -> TakeoffState {
     self.state.clone()
